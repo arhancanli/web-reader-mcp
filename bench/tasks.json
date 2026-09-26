@@ -1,0 +1,19 @@
+{
+  "competitor": {
+    "label": "mcp-server-fetch, the official reference fetch server",
+    "command": "uvx",
+    "args": ["mcp-server-fetch"]
+  },
+  "tasks": [
+    { "id": "rfc9110-content-location", "prompt": "In RFC 9110 (https://www.rfc-editor.org/rfc/rfc9110.html), what is the section number of the Content-Location header field? Give the section number only.", "expect": { "regex": "^\\W*8\\.7\\W*$" } },
+    { "id": "rfc9110-retry-after", "prompt": "In RFC 9110 (https://www.rfc-editor.org/rfc/rfc9110.html), which section number defines the Retry-After header field? Give the section number only.", "expect": { "regex": "^\\W*10\\.2\\.3\\W*$" } },
+    { "id": "rfc9309-limit", "prompt": "According to RFC 9309 (https://www.rfc-editor.org/rfc/rfc9309.html), what is the minimum robots.txt parsing limit crawlers must support? Give the number and unit.", "expect": { "contains": ["500"] } },
+    { "id": "rfc9309-cache", "prompt": "According to RFC 9309 (https://www.rfc-editor.org/rfc/rfc9309.html), crawlers should not use a cached robots.txt for more than how many hours (unless it is unreachable)? Give the number only.", "expect": { "number": 24 } },
+    { "id": "attention-gpus", "prompt": "According to the paper at https://arxiv.org/pdf/1706.03762, how many GPUs were the models trained on? Give the number only.", "expect": { "number": 8 } },
+    { "id": "attention-steps", "prompt": "According to the paper at https://arxiv.org/pdf/1706.03762, for how many training steps was the big model trained? Give the number only.", "expect": { "number": 300000 } },
+    { "id": "pemberley", "prompt": "How many times does the word 'Pemberley' appear in the book at https://www.gutenberg.org/cache/epub/1342/pg1342-images.html ? Give the number only.", "expect": { "number": 55 } },
+    { "id": "functools-typed", "prompt": "According to https://docs.python.org/3.12/library/functools.html, in which Python version was the typed option added to lru_cache? Give the version only.", "expect": { "regex": "^\\W*3\\.3\\W*$" } },
+    { "id": "functools-39", "prompt": "According to https://docs.python.org/3.12/library/functools.html, which functools function was added in Python 3.9? Give its name only.", "expect": { "regex": "^\\W*(functools\\.)?cache(\\(\\))?\\W*$" } },
+    { "id": "postgres-precision", "prompt": "According to https://www.postgresql.org/docs/16/datatype-numeric.html, what is the maximum precision that can be explicitly specified in a numeric type declaration? Give the number only.", "expect": { "number": 1000 } }
+  ]
+}

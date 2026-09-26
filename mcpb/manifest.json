@@ -1,0 +1,63 @@
+{
+  "manifest_version": "0.3",
+  "name": "web-reader-mcp",
+  "display_name": "Web Reader",
+  "version": "0.1.0",
+  "description": "Reads a web page or PDF the way an agent needs it: the main content without navigation or ads, as clean Markdown, with an outline to jump to sections, a query mode that returns only the passages that answer a question, in-page search and link lists. Refuses private and internal addresses, respects robots.txt, no key.",
+  "author": {
+    "name": "Arhan Canli",
+    "url": "https://github.com/arhancanli"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arhancanli/web-reader-mcp"
+  },
+  "homepage": "https://github.com/arhancanli/web-reader-mcp#readme",
+  "documentation": "https://github.com/arhancanli/web-reader-mcp#readme",
+  "support": "https://github.com/arhancanli/web-reader-mcp/issues",
+  "license": "MIT",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "mcp-server",
+    "productivity"
+  ],
+  "server": {
+    "type": "node",
+    "entry_point": "src/server.mjs",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/src/server.mjs"
+      ]
+    }
+  },
+  "tools": [
+    {
+      "name": "find_in_page",
+      "description": "Search a page for text"
+    },
+    {
+      "name": "page_links",
+      "description": "Links on a page"
+    },
+    {
+      "name": "page_outline",
+      "description": "Outline of a page"
+    },
+    {
+      "name": "read_page",
+      "description": "Read a web page or PDF"
+    }
+  ],
+  "compatibility": {
+    "platforms": [
+      "darwin",
+      "win32",
+      "linux"
+    ],
+    "runtimes": {
+      "node": ">=20"
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "measured_on": "2026-09-26",
+  "where": "Dubai, home connection",
+  "node": "v24.19.0",
+  "runs": 5,
+  "tool_definition_chars": 2290,
+  "tools_list_chars": 3635,
+  "competitor": {
+    "label": "mcp-server-fetch, the official reference fetch server",
+    "tool_definition_chars": 1105,
+    "tools_list_chars": 1104
+  },
+  "scenarios": [
+    {
+      "call": "read_page: RFC 9110 (435,000 chars) with a query",
+      "first_call_ms": 1527,
+      "repeat_ms": 18.1,
+      "result_chars": 2085
+    },
+    {
+      "call": "read_page: RFC 9309 from the start (long: outline and next_start)",
+      "first_call_ms": 992,
+      "repeat_ms": 0.4,
+      "result_chars": 9829
+    },
+    {
+      "call": "page_outline: RFC 9309, two levels",
+      "first_call_ms": 1308,
+      "repeat_ms": 0.3,
+      "result_chars": 1019
+    },
+    {
+      "call": "find_in_page: 'Pemberley' in Pride and Prejudice",
+      "first_call_ms": 2658,
+      "repeat_ms": 0.6,
+      "result_chars": 3445
+    },
+    {
+      "call": "read_page: a PDF (RFC 9309) with a query",
+      "first_call_ms": 1064,
+      "repeat_ms": 1.2,
+      "result_chars": 1417
+    },
+    {
+      "call": "read_page: one section of RFC 9309 (2.5. Limits)",
+      "first_call_ms": 907,
+      "repeat_ms": 0.2,
+      "result_chars": 306
+    },
+    {
+      "call": "page_links: Python functools docs, links about itertools",
+      "first_call_ms": 1083,
+      "repeat_ms": 0.4,
+      "result_chars": 504
+    }
+  ],
+  "example": {
+    "call": "read_page: RFC 9110 (435,000 chars) with a query",
+    "tool": "read_page",
+    "arguments": {
+      "url": "https://www.rfc-editor.org/rfc/rfc9110.html",
+      "query": "Content-Location header field",
+      "max_chars": 2000
+    },
+    "result": "{\"url\":\"https://www.rfc-editor.org/rfc/rfc9110.html\",\"title\":\"RFC 9110: HTTP Semantics\",\"passages\":\"2 of 419 matching\",\"chars\":434823,\"content\":\"[...]\\n\\n### 8. Representation Data and Metadata > 8.7. Content-Location\\n\\nThe \\\"Content-Location\\\" header field references a URI that can be used as an identifier for a specific resource corresponding to the representation in this message's content. In other words, if one were to perform a GET request on this URI at the time of this message's generation, then a 200 (OK) response would contain the same representation that is enclosed as content in this message.\\n\\n  Content-Location = absolute-URI / partial-URI\\n\\nThe field value is either an absolute-URI or a partial-URI. In the latter case (Section 4), the referenced URI is relative to the target URI ([URI], [Section 5](https://www.rfc-editor.org/rfc/rfc3986#section-5)).\\n\\nThe Content-Location value is not a replacement for the target URI (Section 7.1). It is representation metadata. It has the same syntax and semantics as the header field of the same name defined for MIME body parts in [Section 4](https://www.rfc-editor.org/rfc/rfc2557#section-4) of [RFC2557]. However, its appearance in an HTTP message has some special implications for HTTP recipients.\\n\\n[...]\\n\\nA user agent that sends Content-Location in a request message is stating that its value refers to where the user agent originally obtained the content of the enclosed representation (prior to any modifications made by that user agent). In other words, the user agent is providing a back link to the source of the original representation.\\n\\nAn origin server that receives a Content-Location field in a request message MUST treat the information as transitory request context rather than as metadata to be saved verbatim as part of the representation. An origin server MAY use that context to guide in processing the request or to save it for other uses, such as within source links or versioning metadata. However, an origin server MUST NOT use such context information to alter the request semantics.\"}"
+  }
+}

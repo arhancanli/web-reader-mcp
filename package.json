@@ -1,0 +1,19 @@
+{
+  "name": "web-reader-mcp",
+  "version": "0.1.0",
+  "description": "Reads a web page or PDF the way an agent needs it: the main content without navigation or ads, as clean Markdown, with an outline to jump to sections, a query mode that returns only the passages that answer a question, in-page search and link lists. Refuses private and internal addresses, respects robots.txt, no key.",
+  "type": "module",
+  "license": "MIT",
+  "author": { "name": "Arhan Canli", "url": "https://github.com/arhancanli" },
+  "bin": { "web-reader-mcp": "src/server.mjs" },
+  "files": ["src", "README.md", "LICENSE", "npm-shrinkwrap.json"],
+  "engines": { "node": ">=20" },
+  "scripts": { "test": "node --test test/*.test.mjs", "start": "node src/server.mjs" },
+  "dependencies": { "@modelcontextprotocol/sdk": "1.30.1", "@mozilla/readability": "0.6.0", "linkedom": "0.18.13", "turndown": "7.2.4", "turndown-plugin-gfm": "1.0.2", "unpdf": "1.8.1", "zod": "4.6.5" },
+  "mcpName": "io.github.arhancanli/web-reader-mcp",
+  "keywords": ["mcp", "model-context-protocol", "mcp-server", "productivity"],
+  "repository": { "type": "git", "url": "git+https://github.com/arhancanli/web-reader-mcp.git" },
+  "homepage": "https://github.com/arhancanli/web-reader-mcp#readme",
+  "bugs": { "url": "https://github.com/arhancanli/web-reader-mcp/issues" },
+  "factory": { "displayName": "Web Reader", "category": "productivity", "allowHosts": [], "dependencyReasons": { "@mozilla/readability": "Firefox Reader View's main-content extraction: separates the article from navigation, ads and footers, which no regex heuristic does reliably.", "linkedom": "A light server-side DOM for Readability and Turndown; jsdom does the same at twenty times the install size.", "turndown": "HTML to Markdown conversion with rules per element; writing a correct converter by hand would duplicate it.", "turndown-plugin-gfm": "GitHub-flavoured tables and strikethrough for Turndown, so tables stay tables instead of runs of text.", "unpdf": "Text from PDFs (a serverless build of Mozilla pdf.js); papers and reports are PDFs and have no other text source." }, "toolListBudget": 6000 }
+}
